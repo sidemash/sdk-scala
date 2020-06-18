@@ -33,7 +33,7 @@ sdm.streamSquare.list(where = Some("createdTime:in:[Yesterday.14h, Yesterday.15h
 ```
 ```scala 
 import com.sidemash.form.ListStreamSquareForm
-sdm.streamSquare.list(form = ListStreamSquareForm(orderBy = Some("createdTime:ASC,status:DESC")))
+sdm.streamSquare.list(ListStreamSquareForm(orderBy = Some("createdTime:ASC,status:DESC")))
 ```
 
 ### Create resources

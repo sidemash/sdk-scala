@@ -2,9 +2,14 @@
 Sdk for live video streaming with Sidemash Cloud in Scala 
 
 ## Installation
+This SDK is set to work with Scala 2.10, 2.11, 2.12 and 2.13
+In your `build.sbt`, add this : 
+```scala
+libraryDependencies += "com.sidemash" %% "sdk-scala" % "2.0.0"
+```
 
 ## Configuration
-First create an `AuthAccess` object to query Sidemash Cloud with API. On creation, you will have a token and a privateKey : Use them to initialize a client.
+First create an `AuthAccess` object to query Sidemash Cloud with API. On creation, you will have a token and a privateKey : Use them to initialize a Sidemash client.
 ```scala 
 import com.sidemash.SidemashClient
 import com.sidemash.Credentials
@@ -13,6 +18,10 @@ val sdm = SidemashClient(Credentials(token = "1234", privateKey ="secret"))
 ```
 
 ## Usage 
+### Nomenclature 
+The is pretty staright forward, if You have a resource that you want to Get List Update Patch or Delete, the you should do `sdm.{resourceTypeCamelCase}.{operation}({operationArgs})`.
+
+
 ### Get ressources
 ```scala
 sdm.streamSquare.get(id = "1234")
@@ -35,7 +44,7 @@ sdm.streamSquare.create(size = StreamSquare.Size.S,isElastic = false)
 import com.sidemash.model.StreamSquare
 import com.sidemash.form.CreateStreamSquareForm
 
-sdm.streamSquare.create(form = CreateStreamSquareForm(size = StreamSquare.Size.S, isElastic = false))
+sdm.streamSquare.create(CreateStreamSquareForm(size = StreamSquare.Size.S, isElastic = false))
 ```
 
 ### Update resources
@@ -45,7 +54,7 @@ sdm.streamSquare.update(id = "1234", newSize = Some(StreamSquare.Size.S))
 ```scala 
 import com.sidemash.form.UpdateStreamSquareForm
 
-sdm.streamSquare.update(form = UpdateStreamSquareForm(id = "1234", newSize = Some(StreamSquare.Size.S)))
+sdm.streamSquare.update(UpdateStreamSquareForm(id = "1234", newSize = Some(StreamSquare.Size.S)))
 ```
 
 ### Delete resources 

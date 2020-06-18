@@ -9,7 +9,7 @@ libraryDependencies += "com.sidemash" %% "sdk-scala" % "2.0.0"
 ```
 
 ## Configuration
-First create an `AuthAccess` object to query Sidemash Cloud with API. On creation, you will have a token and a privateKey : Use them to initialize a Sidemash client.
+First, log in your account and create an `AuthAccess` object to query Sidemash Cloud with API. On creation, you will have a token and a privateKey : Use them to initialize a Sidemash client.
 ```scala 
 import com.sidemash.SidemashClient
 import com.sidemash.Credentials

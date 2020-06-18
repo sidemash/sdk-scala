@@ -22,7 +22,7 @@ val sdm = SidemashClient(Auth(token = "1234", privateKey ="secret"))
 The is pretty staright forward, if You have a resource that you want to Get List Update Patch or Delete, the you should do `sdm.{resourceTypeCamelCase}.{operation}({operationArgs})`.
 
 
-### Get ressources
+### Get resources
 ```scala
 sdm.streamSquare.get(id = "1234")
 ```

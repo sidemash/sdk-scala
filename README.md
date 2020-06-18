@@ -12,9 +12,9 @@ libraryDependencies += "com.sidemash" %% "sdk-scala" % "2.0.0"
 First, log in your account and create an `AuthAccess` object to query Sidemash Cloud with API. On creation, you will have a token and a privateKey : Use them to initialize a Sidemash client.
 ```scala 
 import com.sidemash.SidemashClient
-import com.sidemash.Credentials
+import com.sidemash.Auth
 
-val sdm = SidemashClient(Credentials(token = "1234", privateKey ="secret"))
+val sdm = SidemashClient(Auth(token = "1234", privateKey ="secret"))
 ```
 
 ## Usage 
@@ -49,12 +49,12 @@ sdm.streamSquare.create(CreateStreamSquareForm(size = StreamSquare.Size.S, isEla
 
 ### Update resources
 ```scala 
-sdm.streamSquare.update(id = "1234", newSize = Some(StreamSquare.Size.S))
+sdm.streamSquare.update(id = "1234", newSize = Some(StreamSquare.Size.M))
 ```
 ```scala 
 import com.sidemash.form.UpdateStreamSquareForm
 
-sdm.streamSquare.update(UpdateStreamSquareForm(id = "1234", newSize = Some(StreamSquare.Size.S)))
+sdm.streamSquare.update(UpdateStreamSquareForm(id = "1234", newSize = Some(StreamSquare.Size.M)))
 ```
 
 ### Delete resources 
